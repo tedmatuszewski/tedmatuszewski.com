@@ -11,9 +11,17 @@ namespace TM.Web.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public object Get()
         {
-            return new string[] { "value1", "value2" };
+            return new {
+                title = "Todos",
+                data = new[]
+                {
+                    new { text = "value1", title="title a" },
+                    new { text = "value2", title="title b"  },
+                    new { text = "value3", title="title c"  }
+                }
+            };
         }
 
         // GET api/values/5
