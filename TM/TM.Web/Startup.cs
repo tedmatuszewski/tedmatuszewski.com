@@ -35,6 +35,8 @@ namespace TM.Web
             }
 
             app.UseMvc();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
     }
 }
