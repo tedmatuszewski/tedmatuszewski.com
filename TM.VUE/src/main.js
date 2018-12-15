@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import Router from 'vue-router';
+import axios from 'axios';
 import VueAxios from 'vue-axios';
 import HomeComponent from "./components/HomeComponent.vue";
 import ContactComponent from "./components/ContactComponent.vue";
@@ -8,7 +9,7 @@ import AboutComponent from "./components/AboutComponent.vue";
 
 Vue.config.productionTip = true;
 
-Vue.use(VueAxios);
+Vue.use(VueAxios, axios);
 Vue.use(Router);
 
 let router = new Router({
