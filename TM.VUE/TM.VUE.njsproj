@@ -4,7 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>TM.VUE</Name>
     <RootNamespace>TM.VUE</RootNamespace>
-    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -30,16 +30,40 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="public\css\bootstrap-theme.min.css" />
+    <Content Include="public\css\bootstrap.min.css" />
+    <Content Include="public\css\font-awesome.min.css" />
+    <Content Include="public\css\style.css" />
     <Content Include="public\favicon.ico" />
+    <Content Include="public\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\fonts\FontAwesome.otf" />
+    <Content Include="public\fonts\_notes\dwsync.xml" />
+    <Content Include="public\images\arrow-down.png" />
+    <Content Include="public\images\avatar.png" />
+    <Content Include="public\images\bg-line.png" />
+    <Content Include="public\images\loader.gif" />
+    <Content Include="public\images\marker.png" />
+    <Content Include="public\images\me.jpg" />
+    <Content Include="public\images\point.png" />
+    <Content Include="public\images\point2.png" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
-    <Content Include="src\components\Home.vue" />
+    <Content Include="src\components\ContactComponent.vue" />
+    <Content Include="src\components\AboutComponent.vue" />
+    <Content Include="src\components\HomeComponent.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
     <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\fonts\" />
+    <Folder Include="public\fonts\_notes\" />
+    <Folder Include="public\images\" />
     <Folder Include="src\" />
     <Folder Include="src\assets\" />
     <Folder Include="src\components\" />
