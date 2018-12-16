@@ -1,9 +1,6 @@
 <template>
     <div id='about' class="tab-pane  fade in  active">
         <div class="body-content">
-
-            <router-view />
-            <!-- Start About your self section-->
             <div class="row">
                 <div class="col-md-3 text-center">
                     <img src="/images/me.jpg" alt="avatar" class="img-responsive img-profile img-circle">
@@ -16,11 +13,9 @@
                     </div>
                 </div>
             </div>
-            <!-- End About your self section-->
-            <!-- Start List Indentity and services your self  section-->
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Indentity</h3>
+                    <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Identity</h3>
                     <div class="identity-area">
                         <div class="row" v-for="identity in identities" :key="identity.id">
                             <div class="col-sm-4"><label>{{identity.header}}</label></div>
@@ -34,7 +29,7 @@
                     <div class="box-block">
                         <div id='testimonial-slider' class="carousel slide" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
-                                <div class="item active" v-for="quote in quotes" :key="quote.id">
+                                <div class="item" v-for="(quote, index) in quotes" :key="quote.id" v-bind:class="{ active: index == activeQuote }">
                                     <div class="box-testimonial">
                                         <div class="oComment">
                                             <p>{{quote.value}}</p>
@@ -44,8 +39,8 @@
                                 </div>
                             </div>
                             <div class="control-testi-slider">
-                                <a href="#testimonial-slider" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-                                <a href="#testimonial-slider" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+                                <a href="#testimonial-slider" v-on:click.prevent="prevSlide"><i class="fa fa-chevron-left"></i></a>
+                                <a href="#testimonial-slider" v-on:click.prevent="nextSlide"><i class="fa fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -63,7 +58,8 @@
                 identities: [],
                 introductionBody: "",
                 introductionHeader: "",
-                quotes: []
+                quotes: [],
+                activeQuote: 0
             }
         },
         mounted() {
@@ -75,6 +71,32 @@
                 self.introductionBody = response.data.introductionBody;
                 self.quotes = response.data.quotes;
             });
+        },
+        methods: {
+            prevSlide: function () {
+                var self = this;
+                var last = self.quotes.length - 1;
+
+                if (self.activeQuote == 0) {
+                    self.activeQuote = last;
+
+                    return;
+                }
+
+                self.activeQuote -= 1;
+            },
+            nextSlide: function() {
+                var self = this;
+                var last = self.quotes.length - 1;
+                
+                if (self.activeQuote == last) {
+                    self.activeQuote = 0;
+
+                    return;
+                }
+
+                self.activeQuote += 1;
+            }
         },
         props: {
             msg: "Homemmmmme"

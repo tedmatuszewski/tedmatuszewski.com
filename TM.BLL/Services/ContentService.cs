@@ -17,5 +17,14 @@ namespace TM.BLL.Services
 
             return response;
         }
+
+        public AboutPage GetAboutPage()
+        {
+            var repository = new ContentRepository();
+            var contents = repository.get().ConvertAll(c => new ContentLogic(c));
+            var response = new AboutPage(contents);
+
+            return response;
+        }
     }
 }

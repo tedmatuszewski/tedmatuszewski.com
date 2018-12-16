@@ -15,9 +15,17 @@ namespace TM.API.Controllers
         private ContentService service = new ContentService();
 
         [HttpGet("home")]
-        public ActionResult<HomePage> Get()
+        public ActionResult<HomePage> GetHome()
         {
             var response = service.GetHomePage();
+
+            return response;
+        }
+
+        [HttpGet("about")]
+        public ActionResult<AboutPage> GetAbout()
+        {
+            var response = service.GetAboutPage();
 
             return response;
         }
