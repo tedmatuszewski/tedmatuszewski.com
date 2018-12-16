@@ -6,8 +6,11 @@ import VueAxios from 'vue-axios';
 import HomeComponent from "./components/HomeComponent.vue";
 import ContactComponent from "./components/ContactComponent.vue";
 import AboutComponent from "./components/AboutComponent.vue";
+import config from "./config.json";
 
 Vue.config.productionTip = true;
+
+axios.defaults.baseURL = config.api_url;
 
 Vue.use(VueAxios, axios);
 Vue.use(Router);

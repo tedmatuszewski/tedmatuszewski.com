@@ -30,6 +30,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="src\config.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\css\bootstrap-theme.min.css" />
     <Content Include="public\css\bootstrap.min.css" />
     <Content Include="public\css\font-awesome.min.css" />

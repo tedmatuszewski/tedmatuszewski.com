@@ -69,7 +69,7 @@
         mounted() {
             var self = this;
 
-            this.$http.get("http://localhost:50823/api/content/home").then((response) => {
+            this.$http.get("/content/home").then((response) => {
                 self.identities = response.data.identity;
                 self.introductionHeader = response.data.introductionHeader;
                 self.introductionBody = response.data.introductionBody;
