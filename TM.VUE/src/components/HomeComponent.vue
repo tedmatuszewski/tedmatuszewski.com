@@ -22,7 +22,7 @@
                 <div class="col-md-6">
                     <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Indentity</h3>
                     <div class="identity-area">
-                        <div class="row" v-for="identity in identities">
+                        <div class="row" v-for="identity in identities" :key="identity.id">
                             <div class="col-sm-4"><label>{{identity.header}}</label></div>
                             <div class="col-sm-8">{{identity.value}}</div>
                         </div>
@@ -34,7 +34,7 @@
                     <div class="box-block">
                         <div id='testimonial-slider' class="carousel slide" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
-                                <div class="item active" v-for="(quote, index) in quotes">
+                                <div class="item active" v-for="quote in quotes" :key="quote.id">
                                     <div class="box-testimonial">
                                         <div class="oComment">
                                             <p>{{quote.value}}</p>
@@ -74,8 +74,6 @@
                 self.introductionHeader = response.data.introductionHeader;
                 self.introductionBody = response.data.introductionBody;
                 self.quotes = response.data.quotes;
-
-                console.log(response);
             });
         },
         props: {
