@@ -34,7 +34,7 @@
                     <div class="box-block">
                         <div id='testimonial-slider' class="carousel slide" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
-                                <div class="item active" v-for="quote in quotes">
+                                <div class="item active" v-for="(quote, index) in quotes">
                                     <div class="box-testimonial">
                                         <div class="oComment">
                                             <p>{{quote.value}}</p>

@@ -6,8 +6,9 @@ namespace TM.XAM.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        Home,
+        Resume,
+        Contact
     }
     public class HomeMenuItem
     {
