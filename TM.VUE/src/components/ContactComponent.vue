@@ -46,7 +46,15 @@
         },
         methods: {
             send: function (e) {
+                e.preventDefault();
+
                 var self = this;
+
+                if (self.fullname == null || self.fullname == "" || self.email == null || self.email == "" || self.message == null || self.message == "") {
+                    this.$toast.error("All of the fields are required!");
+
+                    return;
+                }
 
                 this.$http.post("/contact", {
                     fullname: self.fullname,
@@ -59,8 +67,6 @@
                     self.email = "";
                     self.message = "";
                 });
-
-                e.preventDefault();
             }
         },
         mounted() {
