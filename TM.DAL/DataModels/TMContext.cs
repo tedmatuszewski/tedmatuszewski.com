@@ -15,11 +15,28 @@ namespace TM.DAL.DataModels
         {
         }
 
+        public virtual DbSet<Contact> Contact { get; set; }
         public virtual DbSet<Content> Content { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
+            modelBuilder.Entity<Contact>(entity =>
+            {
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(512)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FullName)
+                    .IsRequired()
+                    .HasMaxLength(512)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Message)
+                    .IsRequired()
+                    .HasMaxLength(1023)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<Content>(entity =>
             {
