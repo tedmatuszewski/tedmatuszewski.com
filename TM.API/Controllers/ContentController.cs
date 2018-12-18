@@ -1,54 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using TM.BLL.Pages;
-using TM.BLL.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using TM.Domain.Services;
+using TM.DTO.Objects;
 
 namespace TM.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ContentController : ControllerBase
     {
-        private ContentService service = new ContentService();
+        private readonly ITmService _service;
+
+        public ContentController(ITmService service)
+        {
+            _service = service;
+        }
 
         [HttpGet("home")]
-        public ActionResult<HomePage> GetHome()
+        public ActionResult<HomeDto> GetHome()
         {
-            var response = service.GetHomePage();
+            var response = _service.GetHomePage();
 
             return response;
         }
 
         [HttpGet("about")]
-        public ActionResult<AboutPage> GetAbout()
+        public ActionResult<AboutDto> GetAbout()
         {
-            var response = service.GetAboutPage();
+            var response = _service.GetAboutPage();
 
             return response;
-        }
-
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

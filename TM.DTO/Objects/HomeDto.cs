@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using TM.BLL.Logic;
 
-namespace TM.BLL.Pages
+namespace TM.DTO.Objects
 {
-    public class HomePage
+    public class HomeDto
     {
-        public HomePage(List<ContentLogic> contents)
+        public HomeDto(List<ContentDto> contents)
         {
             var intro = contents.SingleOrDefault(c => c.Type == "Introduction");
 
@@ -18,11 +15,11 @@ namespace TM.BLL.Pages
             this.IntroductionBody = intro?.Value;
         }
 
-        public List<ContentLogic> Quotes { get; private set; }
+        public List<ContentDto> Quotes { get; private set; }
 
         public string IntroductionHeader { get; private set; }
 
-        public List<ContentLogic> Identity { get; private set; }
+        public List<ContentDto> Identity { get; private set; }
 
         public object IntroductionBody { get; private set; }
     }

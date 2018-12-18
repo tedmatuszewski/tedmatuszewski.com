@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TM.DAL.DataModels
+namespace TM.Domain.Entities
 {
     public partial class Contact
     {

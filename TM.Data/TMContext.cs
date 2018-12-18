@@ -1,17 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using TM.Domain.Entities;
 
-namespace TM.DAL.DataModels
+namespace TM.Data
 {
     public partial class TMContext : DbContext
     {
-        public TMContext()
-        {
-        }
-
-        public TMContext(DbContextOptions<TMContext> options)
-            : base(options)
+        public TMContext(DbContextOptions<TMContext> options) : base(options)
         {
         }
 

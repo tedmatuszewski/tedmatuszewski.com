@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using TM.BLL.Logic;
-using TM.BLL.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using TM.Domain.Services;
+using TM.DTO.Objects;
 
 namespace TM.API.Controllers
 {
@@ -12,12 +8,17 @@ namespace TM.API.Controllers
     [Route("api/[controller]")]
     public class ContactController : Controller
     {
-        private ContactService service = new ContactService();
+        private readonly ITmService _service;
+
+        public ContactController(ITmService service)
+        {
+            _service = service;
+        }
 
         [HttpPost]
-        public ActionResult<string> Post(ContactLogic logic)
+        public ActionResult<string> Post(ContactDto logic)
         {
-            var response = service.create(logic);
+            var response = _service.CreateContact(logic);
 
             return response;
         }
