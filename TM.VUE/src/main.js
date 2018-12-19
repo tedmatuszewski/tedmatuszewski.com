@@ -21,7 +21,6 @@ Vue.use(VueAxios, axios);
 Vue.use(Router);
 
 let router = new Router({
-    mode: 'history',
     base: __dirname,
     linkExactActiveClass: "active",
     routes: [
