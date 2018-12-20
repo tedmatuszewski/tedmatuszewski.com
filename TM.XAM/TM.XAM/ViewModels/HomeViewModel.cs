@@ -62,7 +62,7 @@ namespace TM.XAM.ViewModels
             {
                 using (var client = new WebClient())
                 {
-                    var uri = new Uri("http://localhost:50823/api/content/home");
+                    var uri = new Uri("https://tedmatuszewskiapi.azurewebsites.net/api/content/home");
                     var response = await client.DownloadStringTaskAsync(uri);
                     var json = JsonConvert.DeserializeObject<HomeDto>(response);
 
