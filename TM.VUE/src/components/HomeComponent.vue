@@ -18,8 +18,8 @@
                     <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Identity</h3>
                     <div class="identity-area">
                         <div class="row" v-for="identity in identities" :key="identity.id">
-                            <div class="col-sm-4"><label>{{identity.header}}</label></div>
-                            <div class="col-sm-8">{{identity.value}}</div>
+                            <div class="col-sm-4"><label>{{identity.Header}}</label></div>
+                            <div class="col-sm-8">{{identity.Value}}</div>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                                 <div class="item" v-for="(quote, index) in quotes" :key="quote.id" v-bind:class="{ active: index == activeQuote }">
                                     <div class="box-testimonial">
                                         <div class="oComment">
-                                            <p>{{quote.value}}</p>
+                                            <p>{{quote.Value}}</p>
                                         </div>
                                         <img src="/images/me.jpg" alt=''>
                                     </div>
@@ -66,10 +66,10 @@
             var self = this;
 
             this.$http.get("/content/home").then((response) => {
-                self.identities = response.data.identity;
-                self.introductionHeader = response.data.introductionHeader;
-                self.introductionBody = response.data.introductionBody;
-                self.quotes = response.data.quotes;
+                self.identities = response.data.Identity;
+                self.introductionHeader = response.data.IntroductionHeader;
+                self.introductionBody = response.data.IntroductionBody;
+                self.quotes = response.data.Quotes;
             });
         },
         methods: {

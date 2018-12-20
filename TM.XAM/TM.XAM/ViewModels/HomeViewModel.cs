@@ -1,54 +1,86 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
-using System.Text;
+using System.Diagnostics;
+using System.Net;
+using System.Threading.Tasks;
+using TM.DTO.Objects;
 using Xamarin.Forms;
 
 namespace TM.XAM.ViewModels
 {
-    //class HomeViewModel : BaseViewModel
-    //{
-    //    public ObservableCollection<Item> Items { get; set; }
-    //    public Command LoadItemsCommand { get; set; }
+    public class HomeViewModel : BaseViewModel
+    {
+        public ObservableCollection<ContentDto> Identity { get; set; }
 
-    //    public HomeViewModel()
-    //    {
-    //        Title = "Home";
-    //        Items = new ObservableCollection<Item>();
-    //        LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+        public ObservableCollection<ContentDto> Quotes { get; set; }
 
-    //        MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-    //        {
-    //            var newItem = item as Item;
-    //            Items.Add(newItem);
-    //            await DataStore.AddItemAsync(newItem);
-    //        });
-    //    }
+        string header = string.Empty;
 
-    //    async Task ExecuteLoadItemsCommand()
-    //    {
-    //        if (IsBusy)
-    //            return;
+        public string Header
+        {
+            get { return header; }
+            set { SetProperty(ref header, value); }
+        }
 
-    //        IsBusy = true;
+        string about = string.Empty;
 
-    //        try
-    //        {
-    //            Items.Clear();
-    //            var items = await DataStore.GetItemsAsync(true);
-    //            foreach (var item in items)
-    //            {
-    //                Items.Add(item);
-    //            }
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            Debug.WriteLine(ex);
-    //        }
-    //        finally
-    //        {
-    //            IsBusy = false;
-    //        }
-    //    }
-    //}
+        public string About
+        {
+            get { return about; }
+            set { SetProperty(ref about, value); }
+        }
+        
+        public Command LoadItemsCommand { get; set; }
+
+        public HomeViewModel()
+        {
+            Title = "Home";
+            Identity = new ObservableCollection<ContentDto>();
+            Quotes = new ObservableCollection<ContentDto>();
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+        }
+
+        public bool IsEmpty()
+        {
+            if(this.Identity == null || this.Identity.Count == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        async Task ExecuteLoadItemsCommand()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    var uri = new Uri("http://localhost:50823/api/content/home");
+                    var response = await client.DownloadStringTaskAsync(uri);
+                    var json = JsonConvert.DeserializeObject<HomeDto>(response);
+
+                    this.Header = json.IntroductionHeader;
+                    this.About = json.IntroductionBody;
+
+                    json.Identity.ForEach(i => this.Identity.Add(i));
+                    json.Quotes.ForEach(q => this.Quotes.Add(q));
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+    }
 }

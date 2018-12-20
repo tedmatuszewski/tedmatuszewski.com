@@ -7,10 +7,10 @@
                     <div class="box-block">
                         <div class="time-line">
                             <div class="item-event" v-bind:class="{ current: work.order == 1  }" v-for="work in works" :key="work.id">
-                                <span class="date">{{work.year}}</span>
+                                <span class="date">{{work.Year}}</span>
                                 <div class="event-content">
-                                    <h4>{{work.header}}</h4>
-                                    <h5>{{work.subheader}}</h5>
+                                    <h4>{{work.Header}}</h4>
+                                    <h5>{{work.Subheader}}</h5>
                                     <p v-if="work.order == 1">{{work.value}}</p>
                                 </div>
                             </div>
@@ -22,10 +22,10 @@
                     <div class="box-block">
                         <div class="time-line">
                             <div class="item-event" v-for="education in educations" :key="education.id">
-                                <span class="date">{{education.year}}</span>
+                                <span class="date">{{education.Year}}</span>
                                 <div class="event-content">
-                                    <h4>{{education.header}}</h4>
-                                    <h5>{{education.subheader}}</h5>
+                                    <h4>{{education.Header}}</h4>
+                                    <h5>{{education.Subheader}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -36,10 +36,10 @@
                     <div class="box-block">
                         <ul class="list-unstyled list-points-progress">
                             <li v-for="skill in skills" :key="skill.id">
-                                <span class="caption-skill">{{skill.header}}</span>
+                                <span class="caption-skill">{{skill.Header}}</span>
                                 <div class="pogress-point">
-                                    <span class="point-indicator">{{skill.year}}%</span>
-                                    <div class="progress-bar-point" v-bind:style="{ width: skill.year + '%' }"></div>
+                                    <span class="point-indicator">{{skill.Year}}%</span>
+                                    <div class="progress-bar-point" v-bind:style="{ width: skill.Year + '%' }"></div>
                                 </div>
                             </li>
                         </ul>
@@ -73,9 +73,9 @@
             var self = this;
 
             this.$http.get("/content/about").then((response) => {
-                self.works = response.data.work;
-                self.educations = response.data.education;
-                self.skills = response.data.skills;
+                self.works = response.data.Work;
+                self.educations = response.data.Education;
+                self.skills = response.data.Skills;
             });
         }
     };

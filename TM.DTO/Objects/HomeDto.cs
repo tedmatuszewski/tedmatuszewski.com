@@ -5,8 +5,18 @@ namespace TM.DTO.Objects
 {
     public class HomeDto
     {
+        public HomeDto()
+        {
+
+        }
+
         public HomeDto(List<ContentDto> contents)
         {
+            if(contents == null)
+            {
+                return;
+            }
+
             var intro = contents.SingleOrDefault(c => c.Type == "Introduction");
 
             this.Quotes = contents.Where(c => c.Type == "Quote").ToList();
@@ -15,12 +25,12 @@ namespace TM.DTO.Objects
             this.IntroductionBody = intro?.Value;
         }
 
-        public List<ContentDto> Quotes { get; private set; }
+        public List<ContentDto> Quotes { get; set; }
 
-        public string IntroductionHeader { get; private set; }
+        public string IntroductionHeader { get; set; }
 
-        public List<ContentDto> Identity { get; private set; }
+        public List<ContentDto> Identity { get; set; }
 
-        public object IntroductionBody { get; private set; }
+        public string IntroductionBody { get; set; }
     }
 }
