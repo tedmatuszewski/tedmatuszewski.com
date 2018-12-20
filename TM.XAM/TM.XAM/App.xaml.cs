@@ -21,9 +21,9 @@ namespace TM.XAM
 
         protected override void OnStart()
         {
-            AppCenter.Start("uwp=68397844-4139-41b3-a270-31886ff2a5fd;" +
-                  "android=befc8fa0-a672-453e-a6e7-7a47afcaba87;" +
-                  "ios=59ae354c-e242-4343-9fd4-d9b2adb5fe7c;",
+            AppCenter.Start("uwp=f57c9cf0-2399-4256-99da-d10d99604f79;" +
+                  "android=b4f324a0-a810-4572-9ebb-7fc3348a357b;" +
+                  "ios=1acf2f58-f1f0-40ea-a426-b8bbc26d8ec6;",
                   typeof(Analytics));
         }
 
