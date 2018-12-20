@@ -5,6 +5,11 @@ namespace TM.DTO.Objects
 {
     public class AboutDto
     {
+        public AboutDto()
+        {
+
+        }
+
         public AboutDto(List<ContentDto> contents)
         {
             this.Work = contents.Where(c => c.Type == "WorkHistory").OrderBy(w => w.Order).ToList();
@@ -12,10 +17,10 @@ namespace TM.DTO.Objects
             this.Skills = contents.Where(c => c.Type == "Skill").OrderByDescending(c => c.Year).ToList();
         }
 
-        public List<ContentDto> Work { get; private set; }
+        public List<ContentDto> Work { get; set; }
 
-        public List<ContentDto> Education { get; private set; }
+        public List<ContentDto> Education { get; set; }
 
-        public List<ContentDto> Skills { get; private set; }
+        public List<ContentDto> Skills { get; set; }
     }
 }

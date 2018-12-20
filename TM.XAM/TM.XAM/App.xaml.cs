@@ -14,17 +14,15 @@ namespace TM.XAM
         public App()
         {
             InitializeComponent();
-
-
-            MainPage = new HomePage();
+            
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
         {
-            AppCenter.Start("uwp=f57c9cf0-2399-4256-99da-d10d99604f79;" +
-                  "android=b4f324a0-a810-4572-9ebb-7fc3348a357b;" +
-                  "ios=1acf2f58-f1f0-40ea-a426-b8bbc26d8ec6;",
-                  typeof(Analytics));
+            var conn = "uwp=f57c9cf0-2399-4256-99da-d10d99604f79;android=b4f324a0-a810-4572-9ebb-7fc3348a357b;ios=1acf2f58-f1f0-40ea-a426-b8bbc26d8ec6;";
+
+            AppCenter.Start(conn, typeof(Analytics));
         }
 
         protected override void OnSleep()
