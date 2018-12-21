@@ -15,7 +15,7 @@ namespace TM.API.Controllers
             _service = service;
         }
 
-        [HttpPost]
+        [HttpPost("")]
         public ActionResult<string> Post(ContactDto logic)
         {
             var response = _service.CreateContact(logic);
