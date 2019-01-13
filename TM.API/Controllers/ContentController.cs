@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using TM.Domain.Services;
-using TM.DTO.Objects;
+using TM.DTO;
 
 namespace TM.API.Controllers
 {
@@ -27,6 +28,14 @@ namespace TM.API.Controllers
         public ActionResult<AboutDto> GetAbout()
         {
             var response = _service.GetAboutPage();
+
+            return response;
+        }
+
+        [HttpGet]
+        public ActionResult<List<ContentDto>> Get()
+        {
+            var response = _service.GetAllContent();
 
             return response;
         }

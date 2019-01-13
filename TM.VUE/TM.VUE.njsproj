@@ -30,6 +30,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="src\components\ManageComponent.vue" />
+    <Content Include="src\components\SnakeComponent.vue" />
     <Content Include="src\config.json">
       <SubType>Code</SubType>
     </Content>

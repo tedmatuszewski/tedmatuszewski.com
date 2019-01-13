@@ -1,5 +1,6 @@
-﻿using TM.Domain.Convertors;
-using TM.DTO.Objects;
+﻿using System.Collections.Generic;
+using TM.Domain.Convertors;
+using TM.DTO;
 
 namespace TM.Domain.Services
 {
@@ -19,6 +20,13 @@ namespace TM.Domain.Services
             var response = new AboutDto(data);
 
             return response;
+        }
+
+        public List<ContentDto> GetAllContent()
+        {
+            var data = _contentRepository.get().ConvertAll(c => ContentConvertor.Convert(c));
+
+            return data;
         }
     }
 }

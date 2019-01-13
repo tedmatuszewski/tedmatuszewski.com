@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TM.Domain.Services;
-using TM.DTO.Objects;
+using TM.DTO;
 
 namespace TM.API.Controllers
 {

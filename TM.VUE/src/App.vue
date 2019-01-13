@@ -24,7 +24,7 @@
 
                         </section> <!-- End Content section -->
 
-                        <footer class="footer"> Ted Matuszewski </footer>
+                        <footer class="footer"> Ted Matuszewski <router-link tag="a" to="snake">Snake</router-link></footer>
                     </div><!-- End Col -->
                 </div><!-- End Row -->
             </div><!-- End Container -->

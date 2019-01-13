@@ -1,4 +1,5 @@
-﻿using TM.DTO.Objects;
+﻿using System.Collections.Generic;
+using TM.DTO;
 
 namespace TM.Domain.Services
 {
@@ -10,5 +11,6 @@ namespace TM.Domain.Services
 
         AboutDto GetAboutPage();
 
+        List<ContentDto> GetAllContent();
     }
 }

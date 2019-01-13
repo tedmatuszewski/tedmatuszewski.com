@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TM.DTO.Objects
+namespace TM.DTO
 {
     public class ContactDto
     {
