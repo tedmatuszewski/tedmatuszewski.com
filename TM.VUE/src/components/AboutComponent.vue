@@ -1,5 +1,5 @@
 <template>
-    <div id='resume' class="tab-pane">
+    <div id='resume' class="tab-pane active">
         <div class="body-content">
             <div class="row">
                 <div class="col-md-8">

@@ -1,5 +1,5 @@
 <template>
-    <div id='about' class="tab-pane  fade in  active">
+    <div id='about' class="tab-pane active">
         <div class="body-content">
             <div class="row">
                 <div class="col-md-3 text-center">
@@ -29,7 +29,7 @@
                     <div class="box-block">
                         <div id='testimonial-slider' class="carousel slide" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
-                                <div class="item" v-for="(quote, index) in quotes" :key="quote.id" v-bind:class="{ active: index == activeQuote }">
+                                <div class="carousel-item" v-for="(quote, index) in quotes" :key="quote.id" v-bind:class="{ active: index == activeQuote }">
                                     <div class="box-testimonial">
                                         <div class="oComment">
                                             <p>{{quote.Value}}</p>

@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap-vue": "^2.0.0-rc.11",
     "sass-loader": "^7.1.0",
     "vue": "2.5.17",
+    "vue-awesome": "^3.3.1",
     "vue-axios": "^2.1.4",
     "vue-global-events": "^1.1.0",
     "vue-router": "^3.0.2",
@@ -22,6 +24,7 @@
     "vue-toast-notification": "0.0.1"
   },
   "devDependencies": {
+    "@fortawesome/vue-fontawesome": "^0.1.5",
     "@vue/cli-plugin-babel": "3.0.4",
     "@vue/cli-plugin-eslint": "3.0.4",
     "@vue/cli-service": "3.0.4",

@@ -13,6 +13,10 @@ import ManageComponent from "./components/ManageComponent.vue";
 import { ClientTable } from 'vue-tables-2';
 import config from "./config.json";
 import GlobalEvents from 'vue-global-events';
+import Icon from 'vue-awesome/components/Icon';
+import BootstrapVue from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = true;
 
@@ -22,8 +26,11 @@ Vue.use(VueToast);
 Vue.use(VueAxios, axios);
 Vue.use(Router);
 Vue.use(ClientTable);
+Vue.use(BootstrapVue);
 
-Vue.component('GlobalEvents', GlobalEvents)
+Vue.component('v-icon', Icon);
+Vue.component('GlobalEvents', GlobalEvents);
+
 
 let router = new Router({
     base: __dirname,

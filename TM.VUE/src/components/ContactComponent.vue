@@ -1,5 +1,5 @@
 <template>
-    <div id='contact' class="tab-pane">
+    <div id='contact' class="tab-pane active">
         <!-- Start Contact tab content section-->
         <div class="body-content">
             <h3 class="title with-icon"><span class="fa fa-coffee icn-title"></span> Get In Touch</h3>
