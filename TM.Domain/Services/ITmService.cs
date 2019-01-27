@@ -12,5 +12,7 @@ namespace TM.Domain.Services
         AboutDto GetAboutPage();
 
         List<ContentDto> GetAllContent();
+
+        ContentDto CreateContent(ContentDto dto);
     }
 }

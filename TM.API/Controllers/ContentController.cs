@@ -39,5 +39,13 @@ namespace TM.API.Controllers
 
             return response;
         }
+
+        [HttpPost]
+        public ActionResult<ContentDto> Post(ContentDto dto)
+        {
+            var response =_service.CreateContent(dto);
+
+            return response;
+        }
     }
 }

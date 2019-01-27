@@ -28,5 +28,12 @@ namespace TM.Domain.Services
 
             return data;
         }
+
+        public ContentDto CreateContent(ContentDto dto)
+        {
+            var data = _contentRepository.create(ContentConvertor.Convert(dto));
+
+            return ContentConvertor.Convert(data);
+        }
     }
 }

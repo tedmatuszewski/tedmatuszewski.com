@@ -19,5 +19,14 @@ namespace TM.Data.Repositories
 
             return result;
         }
+
+        public Content create(Content domain)
+        {
+            var d =_context.Content.Add(domain);
+
+            this._context.SaveChanges();
+
+            return d.Entity;
+        }
     }
 }
